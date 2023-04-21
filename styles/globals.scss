@@ -73,3 +73,31 @@ a:hover {
 * {
   box-sizing: border-box;
 }
+
+.bvi-images {
+  display: inline-block;
+  vertical-align: middle;
+  z-index: 1;
+  background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+}
+
+.bvi-images.bvi-images-eye {
+  background-image: url(https://testportal.gov.ua/wp-content/plugins/button-visually-impaired/assets/img/eye.svg);
+  background-repeat: no-repeat;
+}
+
+.bvi-images.bvi-images-size-32 {
+  width: 32px!important;
+  height: 32px!important;
+}
+
+.whiteButton {
+  background-color: white;
+  opacity: 0.8;
+}
+
+.whiteButton:hover {
+  opacity: 1; 
+}
