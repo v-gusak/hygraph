@@ -20,7 +20,7 @@ function Header() {
             <span className="cursor-pointer font-bold text-4xl text-white">Blog App</span>
           </Link>
         </div>
-        <div className="hidden md:float-left md:contents"><span className="ml-4 cursor-pointer transition duration-500 ease transform hover:-translate-y-1 inline-block whiteButton rounded-full px-5 py-2 cursor-pointer"><i class="bvi-images bvi-images-eye bvi-images-size-32"></i></span></div>
+        <div className="hidden md:float-left md:contents"><span className="ml-4 cursor-pointer transition duration-500 ease transform hover:-translate-y-1 inline-block whiteButton rounded-full px-5 py-2 cursor-pointer"><i className="bvi-images bvi-images-eye bvi-images-size-32"></i></span></div>
         <div className="hidden md:float-left md:contents">
           {categories.map((category, index) => (
             <Link key={index} href={`/category/${category.slug}`}><span className="md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer">{category.name}</span></Link>

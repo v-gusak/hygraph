@@ -32,7 +32,7 @@ module.exports = {
     'import/prefer-default-export': 0,
     'max-len': [
       2,
-      280,
+      500,
     ],
     "eol-last": 0,
     'no-multiple-empty-lines': [
@@ -65,6 +65,13 @@ module.exports = {
     'jsx-a11y/no-autofocus': 0,
     'jsx-a11y/no-static-element-interactions': 0,
     'react/no-array-index-key': 0,
+    'react/self-closing-comp': [
+      'error', 
+      {
+        component: false,
+        html: false,
+      },
+    ], 
     'jsx-a11y/anchor-is-valid': [
       'error',
       {
