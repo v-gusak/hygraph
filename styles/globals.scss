@@ -101,3 +101,146 @@ a:hover {
 .whiteButton:hover {
   opacity: 1; 
 }
+
+html body .bvi-panel {
+  font-family: Arial,serif!important;
+  font-size: 1rem!important;
+  padding: 0.5rem;
+  color: #000;
+  top: 0;
+  left: 0;
+  right: 0;
+  letter-spacing: 0;
+  position: relative;
+  text-shadow: none;
+  line-height: normal;
+  border: 0;
+  margin-bottom: 0.3rem;
+  background-color: #f7f7f7;
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.23);
+  z-index: 999999!important;
+}
+
+.bvi-panel .bvi-blocks.bvi-block-center {
+  justify-content: center;
+}
+
+html body .bvi-panel .bvi-blocks {
+  margin: 0 auto;
+  text-align: center;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.bvi-panel .bvi-block {
+  padding: 0.688rem 0.938rem;
+}
+
+.bvi-panel .bvi-block .bvi-block-title {
+  text-align: center;
+  font-weight: 600!important;
+  font-size: 1rem!important;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+html body .bvi-panel a.bvi-link {
+  display: inline-block;
+  line-height: 1.5;
+  font-size: .875rem!important;
+  color: #212529!important;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: #e0e0e0!important;
+  border: 1px solid #c6c6c6!important;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  position: relative;
+  font-weight: 700;
+  transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.bvi-panel a.bvi-link::after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  content: "";
+}
+
+.bvi-panel a.bvi-link.bvi-theme-white {
+  background-color: #fff!important;
+  color: #000!important;
+}
+
+.bvi-panel a.bvi-link.bvi-theme-black {
+  background-color: #000!important;
+  color: #fff!important;
+}
+
+.bvi-panel a.bvi-link.bvi-theme-blue {
+  background-color: #9dd1ff!important;
+  color: #063462!important;
+}
+
+.bvi-panel a.bvi-link.bvi-theme-brown {
+  background-color: #f7f3d6!important;
+  color: #4d4b43!important;
+}
+
+.bvi-panel a.bvi-link.bvi-theme-green {
+  background-color: #3b2716!important;
+  color: #a9e44d!important;
+}
+
+.bvi-images {
+  width: 18px;
+  height: 18px;
+  letter-spacing: normal;
+  display: inline-block;
+  vertical-align: middle;
+  z-index: 1;
+  background-size: 100% 100%;
+  -o-background-size: 100% 100%;
+  -webkit-background-size: 100% 100%;
+}
+
+.bvi-images.bvi-images-image {
+  background-image: url(https://testportal.gov.ua/wp-content/plugins/button-visually-impaired/assets/img/image.svg);
+  background-repeat: no-repeat;
+}
+
+.bvi-images.bvi-images-minus-circle {
+  background-image: url(https://testportal.gov.ua/wp-content/plugins/button-visually-impaired/assets/img/minus-circle.svg);
+  background-repeat: no-repeat;
+}
+
+.bvi-images.bvi-images-adjust {
+  background-image: url(https://testportal.gov.ua/wp-content/plugins/button-visually-impaired/assets/img/adjust.svg);
+  background-repeat: no-repeat;
+}
+
+.bvi-images.bvi-images-cog {
+  background-image: url(https://testportal.gov.ua/wp-content/plugins/button-visually-impaired/assets/img/cog.svg);
+  background-repeat: no-repeat;
+}
+
+.bvi-images.bvi-images-minus {
+  background-image: url(https://testportal.gov.ua/wp-content/plugins/button-visually-impaired/assets/img/minus.svg);
+  background-repeat: no-repeat;
+}
+
+.toolbar {
+  display: none;
+}
+
+.show-toolbar {
+  display: block;
+}
