@@ -4,8 +4,6 @@ import { getCategories } from '../services';
 
 function Header() {
   const [categories, setCategories] = useState([]);
-  
-  const [show, setShow] = useState();
 
   useEffect(() => {
     getCategories().then((newCategories) => {
@@ -14,12 +12,12 @@ function Header() {
   }, []);
 
   function showToolBar() {
-    var element = document.querySelector(".toolbar");
-      if(element.classList.contains("show-toolbar")) {
-  	    element.classList.remove("show-toolbar");
-      } else {
-  	  element.classList.add("show-toolbar");
-  }
+    const element = document.querySelector('.toolbar');
+    if (element.classList.contains('show-toolbar')) {
+      element.classList.remove('show-toolbar');
+    } else {
+      element.classList.add('show-toolbar');
+    }
   }
 
   return (
@@ -29,8 +27,8 @@ function Header() {
           <Link href="/">
             <span className="cursor-pointer font-bold text-4xl text-white">Blog App</span>
           </Link>
+          <div onClick={showToolBar} className="float-left contents"><span className="ml-4 cursor-pointer inline-block whiteButton rounded-full px-5 py-2 cursor-pointer"><i className="bvi-images bvi-images-eye bvi-images-size-32"></i></span></div>
         </div>
-        <div onClick={showToolBar} className="hidden md:float-left md:contents"><span className="ml-4 cursor-pointer inline-block whiteButton rounded-full px-5 py-2 cursor-pointer"><i className="bvi-images bvi-images-eye bvi-images-size-32"></i></span></div>
         <div className="hidden md:float-left md:contents">
           {categories.map((category, index) => (
             <Link key={index} href={`/category/${category.slug}`}><span className="md:float-right mt-2 align-middle text-white ml-4 font-semibold cursor-pointer">{category.name}</span></Link>

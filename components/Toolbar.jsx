@@ -1,9 +1,31 @@
 import React from 'react';
 
 function Toolbar() {
+    function normalLetterSpacing() {
+        document.getElementById('__next').style.letterSpacing = 'normal';
+    }
 
+    function middleLetterSpacing() {
+        document.getElementById('__next').style.letterSpacing = '2px';
+    }
+
+    function bigLetterSpacing() {
+        document.getElementById('__next').style.letterSpacing = '4px';
+    }
+
+    function normalLineHeight() {
+        document.getElementById("__next").style.lineHeight = 'normal';
+    }
+
+    function middleLineHeight() {
+        document.getElementById('__next').style.lineHeight = '150%';
+    }
+
+    function hightLineHeight() {
+        document.getElementById('__next').style.lineHeight = '200%';
+    }
   return (
-  <div className="bvi-panel toolbar" >
+    <div className="bvi-panel toolbar">
           <div className="bvi-blocks bvi-block-center">
               <div className="bvi-block">
                   <div className="bvi-block-title">Розмір шрифту</div>
@@ -35,19 +57,19 @@ function Toolbar() {
                   <a href="#" className="bvi-link bvi-reset">Скинути налаштування</a>
               </div>
           </div>
-          <div>
+        <div>
             <div className="bvi-blocks bvi-block-center">
               <div className="bvi-block">
                                   <div className="bvi-block-title">Міжлітерна відстань</div>
-                                  <a href="#" className="bvi-link bvi-letter-spacing-normal active">Стандартна</a>
-                                  <a href="#" className="bvi-link bvi-letter-spacing-average">Середня</a>
-                                  <a href="#" className="bvi-link bvi-letter-spacing-big">Велика</a>
+                                  <a href='#' onClick={normalLetterSpacing} className="bvi-link bvi-letter-spacing-normal active">Стандартна</a>
+                                  <a href='#' onClick={middleLetterSpacing} className="bvi-link bvi-letter-spacing-average">Середня</a>
+                                  <a onClick={bigLetterSpacing} className="bvi-link bvi-letter-spacing-big">Велика</a>
               </div>
                               <div className="bvi-block">
                                   <div className="bvi-block-title">Міжрядкова відстань</div>
-                                  <a href="#" className="bvi-link bvi-line-height-normal active">Стандартна</a>
-                                  <a href="#" className="bvi-link bvi-line-height-average">Середня</a>
-                                  <a href="#" className="bvi-link bvi-line-height-big">Велика</a>
+                                  <a href='#' onClick={normalLineHeight} className="bvi-link bvi-line-height-normal active">Стандартна</a>
+                                  <a href='#' onClick={middleLineHeight} className="bvi-link bvi-line-height-average">Середня</a>
+                                  <a href='#' onClick={hightLineHeight} className="bvi-link bvi-line-height-big">Велика</a>
                               </div>
                               <div className="bvi-block">
                                   <div className="bvi-block-title">Шрифт</div>
@@ -60,11 +82,8 @@ function Toolbar() {
                                   <a href="#" className="bvi-link bvi-built-elements-off active">Вимкнути</a>
                               </div>
             </div>
-            <div className="bvi-blocks bvi-block-center">
-                              <a href="" className="bvi-copyright" target="_blank"></a>
-            </div>
-            </div>
-      </div>
+        </div>
+    </div>
   );
 }
 

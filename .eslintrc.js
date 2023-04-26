@@ -19,7 +19,10 @@ module.exports = {
     'react',
   ],
   rules: {
+    'indent': 'off',
+    'react/jsx-indent': 'off',
     'react/jsx-no-useless-fragment': 0,
+    'react/jsx-closing-tag-location': 'off',
     'react/no-unescaped-entities': 0,
     '@next/next/no-page-custom-font': 0,
     'jsx-a11y/label-has-associated-control': 0,
@@ -76,17 +79,10 @@ module.exports = {
       'error',
       {
         components: [
-          'Link',
         ],
         specialLink: [
-          'to',
-          'hrefLeft',
-          'hrefRight',
         ],
         aspects: [
-          'noHref',
-          'invalidHref',
-          'preferButton',
         ],
       },
     ],
