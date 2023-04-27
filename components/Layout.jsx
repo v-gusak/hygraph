@@ -6,8 +6,10 @@ function Layout({ children }) {
   return (
     <>
       <Toolbar />
-      <Header />
-      {children}
+      <div id='mainPart'>
+        <Header />
+        {children}
+      </div>
     </>
   );
 }

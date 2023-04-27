@@ -14,7 +14,7 @@ function Toolbar() {
     }
 
     function normalLineHeight() {
-        document.getElementById("__next").style.lineHeight = 'normal';
+        document.getElementById('__next').style.lineHeight = 'normal';
     }
 
     function middleLineHeight() {
@@ -24,6 +24,32 @@ function Toolbar() {
     function hightLineHeight() {
         document.getElementById('__next').style.lineHeight = '200%';
     }
+
+    function withNotches() {
+        document.getElementById('__next').style.fontFamily = 'Roboto Slab, serif';
+    }
+
+    function withoutNotches() {
+        document.getElementById('__next').style.fontFamily = 'Montserrat, sans-serif';
+    }
+
+    function grayScale() {
+        document.getElementById('mainPart').style.filter = 'grayscale(100%)';
+    }
+
+    function normalImg() {
+        document.getElementById('mainPart').style.filter = 'initial';
+        
+    }
+
+    function hideImg() {
+        // document.getElementById('IMAGE').style.display = 'none';
+        var images = document.getElementsByTagName("img"); // знайти всі зображення на сторінці
+        for (var i = 0; i < images.length; i++) {
+            images[i].style.display = "none"; // приховати кожне зображення
+        }
+    }
+
   return (
     <div className="bvi-panel toolbar">
           <div className="bvi-blocks bvi-block-center">
@@ -42,13 +68,13 @@ function Toolbar() {
               </div>
               <div className="bvi-block">
                   <div className="bvi-block-title">Картинка</div>
-                  <a href="#" className="bvi-link bvi-images-on">
+                  <a href="#" onClick={normalImg} className="bvi-link bvi-images-on">
                       <i className="bvi-images bvi-images-image"></i>
                   </a>
-                  <a href="#" className="bvi-link bvi-images-off">
+                  <a href="#" onClick={hideImg} className="bvi-link bvi-images-off">
                       <i className="bvi-images bvi-images-minus-circle"></i>
                   </a>
-                  <a href="#" className="bvi-link bvi-images-grayscale">
+                  <a href="#" onClick={grayScale} className="bvi-link bvi-images-grayscale">
                       <i className="bvi-images bvi-images-adjust"></i>
                   </a>
               </div>
@@ -63,7 +89,7 @@ function Toolbar() {
                                   <div className="bvi-block-title">Міжлітерна відстань</div>
                                   <a href='#' onClick={normalLetterSpacing} className="bvi-link bvi-letter-spacing-normal active">Стандартна</a>
                                   <a href='#' onClick={middleLetterSpacing} className="bvi-link bvi-letter-spacing-average">Середня</a>
-                                  <a onClick={bigLetterSpacing} className="bvi-link bvi-letter-spacing-big">Велика</a>
+                                  <a href='#' onClick={bigLetterSpacing} className="bvi-link bvi-letter-spacing-big">Велика</a>
               </div>
                               <div className="bvi-block">
                                   <div className="bvi-block-title">Міжрядкова відстань</div>
@@ -73,13 +99,8 @@ function Toolbar() {
                               </div>
                               <div className="bvi-block">
                                   <div className="bvi-block-title">Шрифт</div>
-                                  <a href="#" className="bvi-link bvi-font-family-arial active">Без зарубок</a>
-                                  <a href="#" className="bvi-link bvi-font-family-times">Із зарубками</a>
-                              </div>
-                              <div className="bvi-block">
-                                  <div className="bvi-block-title">Вбудовані елементи (відео, карти тощо)</div>
-                                  <a href="#" className="bvi-link bvi-built-elements-on">Увімкнути</a>
-                                  <a href="#" className="bvi-link bvi-built-elements-off active">Вимкнути</a>
+                                  <a href="#" onClick={withoutNotches} className="bvi-link bvi-font-family-arial active">Без зарубок</a>
+                                  <a href="#" onClick={withNotches} className="bvi-link bvi-font-family-times">Із зарубками</a>
                               </div>
             </div>
         </div>
