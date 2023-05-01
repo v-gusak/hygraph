@@ -11,10 +11,12 @@ class MyDocument extends Document {
       <Html>
         <Head>
         </Head>
+        <div className='myBase'>
         <body>
           <Main />
           <NextScript />
         </body>
+        </div>
       </Html>
     );
   }

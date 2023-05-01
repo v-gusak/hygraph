@@ -18,11 +18,11 @@ function Toolbar() {
     }
 
     function middleLineHeight() {
-        document.getElementById('__next').style.lineHeight = '150%';
+        document.getElementById('__next').style.lineHeight = '200%';
     }
 
     function hightLineHeight() {
-        document.getElementById('__next').style.lineHeight = '200%';
+        document.getElementById('__next').style.lineHeight = '250%';
     }
 
     function withNotches() {
@@ -50,18 +50,87 @@ function Toolbar() {
         }
     }
 
+    var  theCount = 12;
+
+    function increaseFontSize() {
+        theCount++;
+        document.getElementById('mainPart').setAttribute('style', `font-size: ${theCount}pt`);
+    }
+
+    function decreaseFontSize() {
+        theCount--;
+        document.getElementById('mainPart').setAttribute('style', `font-size: ${theCount}pt`);
+    }
+
+    function reset() {
+        document.getElementById('mainPart').style.fontSize = '12pt';
+        document.getElementById('mainPart').style.filter = 'initial';
+        document.getElementById('__next').style.lineHeight = 'normal';
+        document.getElementById('__next').style.letterSpacing = 'normal';
+        document.getElementById('__next').style.fontFamily = 'Montserrat, sans-serif';
+    }
+
+    function whiteTheme() {
+        document.querySelector('.myBase').classList.add('bg-white');
+    
+        const header = document.querySelector('.header');
+
+        if (header.classList.contains('text-white')) {
+            header.classList.remove('text-white');
+            header.classList.add('text-black');
+        } 
+
+        const whiteButton = document.querySelector('.whiteButton');
+
+        whiteButton.classList.remove('bg-white');
+        whiteButton.classList.add('bg-gray-300');
+     
+        const linkButton = document.querySelector('.linkButton');
+    }
+
+    function darkTheme() {
+        const myBase = document.querySelector('.myBase');
+        
+        if (myBase.classList.contains('bg-white')) {
+            myBase.classList.remove('bg-white');
+            myBase.classList.add('bg-black');
+        }
+        
+        const header = document.querySelector('.header');
+
+        if (header.classList.contains('text-black')) {
+            header.classList.remove('text-black');
+            header.classList.add('text-white');
+        } 
+
+        const whiteButton = document.querySelector('.whiteButton');
+
+        if (whiteButton.classList.contains('bg-gray-300')) {
+            whiteButton.classList.remove('bg-gray-300');
+            whiteButton.classList.add('bg-white')
+        }
+
+        document.querySelector('.POST').classList.remove('bg-white');
+        document.querySelector('.POST').classList.add('bg-black', 'text-white', 'border-2', 'border-white');
+
+        document.querySelector('.lastPosts').classList.remove('bg-white');
+        document.querySelector('.lastPosts').classList.add('bg-black', 'text-white', 'border-2', 'border-white');
+        document.querySelector('.categor').classList.remove('bg-white');
+        document.querySelector('.categor').classList.add('bg-black', 'text-white', 'border-2', 'border-white');
+    }
+
   return (
     <div className="bvi-panel toolbar">
           <div className="bvi-blocks bvi-block-center">
               <div className="bvi-block">
                   <div className="bvi-block-title">Розмір шрифту</div>
-                  <a className="bvi-link bvi-fontSize-minus">А-</a>
-                  <a className="bvi-link bvi-fontSize-plus">А+</a>
+                  <a href="#" onClick={decreaseFontSize} className="bvi-link bvi-fontSize-minus">А-</a>
+                  <a href="#" onClick={increaseFontSize} className="bvi-link bvi-fontSize-plus">А+</a>
               </div>
               <div className="bvi-block">
                   <div className="bvi-block-title">Колір сайту</div>
-                  <a href="#" className="bvi-link bvi-theme-white active">К</a>
-                  <a href="#" className="bvi-link bvi-theme-black">К</a>
+                  <a href="#" onClick={whiteTheme} className="bvi-link bvi-theme-white">К</a>
+                  <a href="#" onClick={darkTheme} className="bvi-link bvi-theme-black">К</a>
                   <a href="#" className="bvi-link bvi-theme-blue">К</a>
                   <a href="#" className="bvi-link bvi-theme-brown">К</a>
                   <a href="#" className="bvi-link bvi-theme-green">К</a>
@@ -80,7 +149,7 @@ function Toolbar() {
               </div>
               <div className="bvi-block">
                   <div className="bvi-block-title">Скидання</div>
-                  <a href="#" className="bvi-link bvi-reset">Скинути налаштування</a>
+                  <a href="#" onClick={reset} className="bvi-link bvi-reset">Скинути налаштування</a>
               </div>
           </div>
         <div>
