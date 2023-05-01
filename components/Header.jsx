@@ -22,7 +22,7 @@ function Header() {
 
   return (
     <div className="container mx-auto px-10 mb-8 text-white header">
-      <div className="border-b w-full inline-block border-blue-400 py-6">
+      <div className="border-b w-full inline-block border-blue-400 py-6 headerLine">
         <div className="md:float-left block">
           <Link href="/">
             <span className="cursor-pointer font-bold text-4xl">Blog App</span>

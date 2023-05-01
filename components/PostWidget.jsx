@@ -23,7 +23,7 @@ function PostWidget({ categories, slug }) {
 
   return (
     <div className="bg-white shadow-2xl rounded-lg p-8 pb-4 mb-8 lastPosts">
-      <h3 className=" mb-8 font-semibold border-b pb-4">{slug ? 'Пов’язані публікації' : 'Останні публікації'}</h3>
+      <h3 className="mb-8 font-semibold border-b pb-4 lastPostsLine border-gray">{slug ? 'Пов’язані публікації' : 'Останні публікації'}</h3>
       {relatedPosts.map((post, index) => (
         <Link href={`/post/${post.slug}`} className="text-md" key={index}>
           <div key={index} className="flex items-center w-full mb-4">
@@ -39,7 +39,7 @@ function PostWidget({ categories, slug }) {
               />
             </div>
             <div className="flex-grow ml-4">
-              <p className="text-gray-500 font-xs">{moment(post.createdAt).format('MMM DD, YYYY')}</p>
+              <p className="font-xs opacity-50">{moment(post.createdAt).format('MMM DD, YYYY')}</p>
               {post.title}
             </div>
           </div>
