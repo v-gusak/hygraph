@@ -6,7 +6,7 @@ function Layout({ children }) {
   return (
     <>
       <Toolbar />
-      <div id='mainPart'>
+      <div id='mainPart' className='mainPurt'>
         <Header />
         {children}
       </div>

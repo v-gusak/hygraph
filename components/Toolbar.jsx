@@ -34,19 +34,28 @@ function Toolbar() {
     }
 
     function grayScale() {
-        document.getElementById('mainPart').style.filter = 'grayscale(100%)';
+        document.getElementById('featuredPostGrayImage').style.filter = 'grayscale(100%)';
+
+        for (let index = 0; index < 10; index++) {
+            document.getElementById(`postCardGrayImage_${index}`).style.filter = 'grayscale(100%)';
+            document.getElementById(`postCardAuthorGrayImage_${index}`).style.filter = 'grayscale(100%)';
+        }
+
+        for (let index = 0; index < 3; index++) {
+            document.getElementById(`lastPosts_${index}`).style.filter = 'grayscale(100%)';
+        }
     }
 
     function normalImg() {
-        document.getElementById('mainPart').style.filter = 'initial';
-        
-    }
+        document.getElementById('featuredPostGrayImage').style.filter = 'initial';
 
-    function hideImg() {
-        // document.getElementById('IMAGE').style.display = 'none';
-        var images = document.getElementsByTagName("img"); // знайти всі зображення на сторінці
-        for (var i = 0; i < images.length; i++) {
-            images[i].style.display = "none"; // приховати кожне зображення
+        for (let index = 0; index < 10; index++) {
+            document.getElementById(`postCardGrayImage_${index}`).style.filter = 'initial';
+            document.getElementById(`postCardAuthorGrayImage_${index}`).style.filter = 'initial';
+        }
+
+        for (let index = 0; index < 3; index++) {
+            document.getElementById(`lastPosts_${index}`).style.filter = 'initial';
         }
     }
 
@@ -69,15 +78,123 @@ function Toolbar() {
         document.getElementById('__next').style.letterSpacing = 'normal';
         document.getElementById('__next').style.fontFamily = 'Montserrat, sans-serif';
 
-        // const myBase = document.querySelector('.myBase');
+        theCount = 12;
+
+        const myBase = document.querySelector('.myBase');
         
-        // if (myBase.classList.contains('bg-white')) {
-        //     myBase.classList.remove('bg-white');
-        //     myBase.classList.add('bg-inherit')
-        // } else if (myBase.classList.contains('bg-black')) {
-        //     myBase.classList.remove('bg-black');
-        //     myBase.classList.add('bg-inherit')
-        // }
+        if (myBase.classList.contains('bg-white')) {
+            myBase.classList.remove('bg-white');
+        } else if (myBase.classList.contains('bg-black')) {
+            myBase.classList.remove('bg-black');
+        } else if (myBase.classList.contains('bg-blue-300')) {
+            myBase.classList.remove('bg-blue-300');
+        }
+
+        const header = document.querySelector('.header');
+
+        if (header.classList.contains('text-black')) {
+            header.classList.remove('text-black');
+            header.classList.add('text-white');
+        } else if (header.classList.contains('text-blue-950')) {
+            header.classList.add('text-white');
+            header.classList.remove('text-blue-950');
+        }
+
+        const headerLine = document.querySelector('.headerLine');
+        const lastPostsLine = document.querySelector('.lastPostsLine');
+        const categorLine = document.querySelector('.categorLine');
+
+        if (headerLine.classList.contains('border-black')) {
+            headerLine.classList.remove('border-black');
+            headerLine.classList.add('border-blue-400');
+        } else if (headerLine.classList.contains('border-white')) {
+            headerLine.classList.remove('border-white');
+            headerLine.classList.add('border-blue-400');
+        }
+
+        if (lastPostsLine.classList.contains('border-white')) {
+            lastPostsLine.classList.remove('border-white');
+            lastPostsLine.classList.add('border-gray');
+        } else if (lastPostsLine.classList.contains('border-black')) {
+            lastPostsLine.classList.remove('border-black');
+            lastPostsLine.classList.add('border-gray');
+        } else if (lastPostsLine.classList.contains('border-blue-400')) {
+            lastPostsLine.classList.remove('border-blue-400');
+            lastPostsLine.classList.add('border-gray');
+        }
+
+        if (categorLine.classList.contains('border-white')) {
+            categorLine.classList.remove('border-white');
+            categorLine.classList.add('border-gray');
+        } else if (categorLine.classList.contains('border-black')) {
+            categorLine.classList.remove('border-black');
+            categorLine.classList.add('border-gray');
+        } else if (categorLine.classList.contains('border-blue-400')) {
+            categorLine.classList.remove('border-blue-400');
+            categorLine.classList.add('border-gray');
+        }
+
+        const whiteButton = document.querySelector('.whiteButton');
+
+        if (whiteButton.classList.contains('bg-gray-300')) {
+            whiteButton.classList.remove('bg-gray-300');
+            whiteButton.classList.add('bg-white');
+        } else if (whiteButton.classList.contains('bg-blue-400')) {
+            whiteButton.classList.remove('bg-blue-400');
+            whiteButton.classList.add('bg-white');
+        }
+
+        let POST, link;
+
+        for (let index = 0; index < 10; index++) {
+            POST = document.querySelector(`.POST_${index}`);
+
+            if (POST.classList.contains('bg-black')) {
+                POST.classList.remove('bg-black', 'text-white', 'border-4', 'border-white');
+                POST.classList.add('bg-white', 'text-black');
+            } else if (POST.classList.contains('bg-blue-300')) {
+                POST.classList.remove('bg-blue-300', 'text-blue-950', 'border-4', 'border-blue-300');
+                POST.classList.add('bg-white', 'text-black');
+            } else if (POST.classList.contains('bg-white')) {
+                POST.classList.remove('border-4', 'border-black');
+            }
+
+            link = document.querySelector(`.link_${index}`);
+
+            if (link.classList.contains('bg-black')) {
+                link.classList.remove('bg-black', 'border-2', 'border-white');
+                link.classList.add('text-white', 'bg-pink-600');
+            }  else if (link.classList.contains('text-blue-950')) {
+                link.classList.remove('text-blue-950', 'bg-blue-400');
+                link.classList.add('text-white', 'bg-pink-600');
+            } else if (link.classList.contains('text-black')) {
+                link.classList.remove('text-black', 'bg-white', 'border-2', 'border-black');
+                link.classList.add('text-white', 'bg-pink-600');
+            }
+        }
+
+        const lastPosts = document.querySelector('.lastPosts');
+        const categor = document.querySelector('.categor');
+
+        if (lastPosts.classList.contains('bg-black')) {
+            lastPosts.classList.remove('bg-black', 'text-white', 'border-4', 'border-white');
+            lastPosts.classList.add('bg-white', 'text-black');
+        } else if (lastPosts.classList.contains('bg-blue-300')) {
+            lastPosts.classList.remove('bg-blue-300', 'text-blue-950', 'border-4', 'border-blue-400');
+            lastPosts.classList.add('bg-white', 'text-black');
+        } else if (lastPosts.classList.contains('bg-white')) {
+            lastPosts.classList.remove('border-4', 'border-black')
+        }
+
+        if (categor.classList.contains('bg-black')) {
+            categor.classList.remove('bg-black', 'text-white', 'border-4', 'border-white');
+            categor.classList.add('bg-white', 'text-black');
+        } else if (categor.classList.contains('bg-blue-300')) {
+            categor.classList.remove('bg-blue-300', 'text-blue-950', 'border-4', 'border-blue-400');
+            categor.classList.add('bg-white', 'text-black');
+        } else if (categor.classList.contains('bg-white')) {
+            categor.classList.remove('border-4', 'border-black')
+        }
     }
 
     function whiteTheme() {
@@ -100,66 +217,9 @@ function Toolbar() {
             header.classList.add('text-black');
         } 
 
+        const headerLine = document.querySelector('.headerLine');
         const lastPostsLine = document.querySelector('.lastPostsLine');
         const categorLine = document.querySelector('.categorLine');
-
-        if (lastPostsLine.classList.contains('border-white')) {
-            lastPostsLine.classList.remove('border-white');
-            lastPostsLine.classList.add('border-black');
-        }
-
-        if (categorLine.classList.contains('border-white')) {
-            categorLine.classList.remove('border-white');
-            categorLine.classList.add('border-black');
-        }
-
-        const whiteButton = document.querySelector('.whiteButton');
-
-        if (whiteButton.classList.contains('bg-white')) {
-            whiteButton.classList.add('bg-gray-300');
-            whiteButton.classList.remove('bg-white');
-        } else if (whiteButton.classList.contains('bg-black')) {
-            whiteButton.classList.remove('bg-black');
-            whiteButton.classList.add('bg-gray-300');
-        } else if (whiteButton.classList.contains('bg-blue-400')) {
-            whiteButton.classList.remove('bg-blue-400');
-            whiteButton.classList.add('bg-gray-300');
-        }
-
-        let POST;
-
-        for (let index = 0; index < 10; index++) {
-            POST = document.querySelector(`.POST_${index}`);
-
-            if (POST.classList.contains('bg-black')) {
-                POST.classList.remove('bg-black', 'text-white', 'border-2', 'border-white');
-                POST.classList.add('bg-white', 'text-black');
-            } else if (POST.classList.contains('bg-blue-400')) {
-                POST.classList.remove('bg-blue-400', 'text-blue-950');
-                POST.classList.add('bg-white', 'text-black');
-            }
-        }
-
-        const lastPosts = document.querySelector('.lastPosts');
-        const categor = document.querySelector('.categor');
-
-        if (lastPosts.classList.contains('bg-black')) {
-            lastPosts.classList.remove('bg-black', 'text-white', 'border-2', 'border-white');
-            lastPosts.classList.add('bg-white', 'text-black');
-        } else if (lastPosts.classList.contains('bg-blue-400')) {
-            lastPosts.classList.remove('bg-blue-400', 'text-blue-950');
-            lastPosts.classList.add('bg-white', 'text-black');
-        }
-
-        if (categor.classList.contains('bg-black')) {
-            categor.classList.remove('bg-black', 'text-white', 'border-2', 'border-white');
-            categor.classList.add('bg-white', 'text-black');
-        } else if (categor.classList.contains('bg-blue-400')) {
-            categor.classList.remove('bg-blue-400', 'text-blue-950');
-            categor.classList.add('bg-white', 'text-black');
-        }
-
-        const headerLine = document.querySelector('.headerLine');
 
         if (headerLine.classList.contains('border-blue-400')) {
             headerLine.classList.remove('border-blue-400');
@@ -167,6 +227,87 @@ function Toolbar() {
         } else if (headerLine.classList.contains('border-white')) {
             headerLine.classList.remove('border-white');
             headerLine.classList.add('border-black');
+        }
+
+        if (lastPostsLine.classList.contains('border-white')) {
+            lastPostsLine.classList.remove('border-white');
+            lastPostsLine.classList.add('border-black');
+        } else if (lastPostsLine.classList.contains('border-gray')) {
+            lastPostsLine.classList.remove('border-gray');
+            lastPostsLine.classList.add('border-black');
+        } else if (lastPostsLine.classList.contains('border-blue-400')) {
+            lastPostsLine.classList.remove('border-blue-400');
+            lastPostsLine.classList.add('border-black'); 
+        }
+
+        if (categorLine.classList.contains('border-white')) {
+            categorLine.classList.remove('border-white');
+            categorLine.classList.add('border-black');
+        } else if (categorLine.classList.contains('border-gray')) {
+            categorLine.classList.remove('border-gray');
+            categorLine.classList.add('border-black');
+        } else if (categorLine.classList.contains('border-blue-400')) {
+            categorLine.classList.remove('border-blue-400');
+            categorLine.classList.add('border-black'); 
+        }
+
+        const whiteButton = document.querySelector('.whiteButton');
+
+        if (whiteButton.classList.contains('bg-white')) {
+            whiteButton.classList.remove('bg-white');
+            whiteButton.classList.add('bg-gray-300');
+        } else if (whiteButton.classList.contains('bg-blue-400')) {
+            whiteButton.classList.remove('bg-blue-400');
+            whiteButton.classList.add('bg-gray-300');
+        }
+
+        let POST, link;
+
+        for (let index = 0; index < 10; index++) {
+            POST = document.querySelector(`.POST_${index}`);
+
+            if (POST.classList.contains('bg-black')) {
+                POST.classList.remove('bg-black', 'text-white', 'border-4', 'border-white');
+                POST.classList.add('bg-white', 'text-black', 'border-4', 'border-black');
+            } else if (POST.classList.contains('bg-blue-300')) {
+                POST.classList.remove('bg-blue-300', 'text-blue-950', 'border-4', 'border-blue-300');
+                POST.classList.add('bg-white', 'text-black', 'border-4', 'border-black');
+            } else if (POST.classList.contains('bg-white')) {
+                POST.classList.add('border-4', 'border-black')
+            }
+
+            link = document.querySelector(`.link_${index}`);
+
+            if (link.classList.contains('text-white')) {
+                link.classList.remove('text-white', 'bg-pink-600', 'bg-black');
+                link.classList.add('text-black', 'bg-white', 'border-2', 'border-black');
+            } else if (link.classList.contains('text-blue-950')) {
+                link.classList.remove('text-blue-950', 'bg-blue-400');
+                link.classList.add('text-black', 'bg-white', 'border-2', 'border-black');
+            }
+        }
+
+        const lastPosts = document.querySelector('.lastPosts');
+        const categor = document.querySelector('.categor');
+
+        if (lastPosts.classList.contains('bg-black')) {
+            lastPosts.classList.remove('bg-black', 'text-white', 'border-4', 'border-white');
+            lastPosts.classList.add('bg-white', 'text-black', 'border-4', 'border-black');
+        } else if (lastPosts.classList.contains('bg-blue-300')) {
+            lastPosts.classList.remove('bg-blue-300', 'text-blue-950', 'border-4', 'border-blue-400');
+            lastPosts.classList.add('bg-white', 'text-black', 'border-4', 'border-black');
+        } else if (lastPosts.classList.contains('bg-white')) {
+            lastPosts.classList.add('border-4', 'border-black')
+        }
+
+        if (categor.classList.contains('bg-black')) {
+            categor.classList.remove('bg-black', 'text-white', 'border-4', 'border-white');
+            categor.classList.add('bg-white', 'text-black', 'border-4', 'border-black');
+        } else if (categor.classList.contains('bg-blue-300')) {
+            categor.classList.remove('bg-blue-300', 'text-blue-950', 'border-4', 'border-blue-400');
+            categor.classList.add('bg-white', 'text-black', 'border-4', 'border-black');
+        } else if (categor.classList.contains('bg-white')) {
+            categor.classList.add('border-4', 'border-black')
         }
     }
 
@@ -178,6 +319,8 @@ function Toolbar() {
             myBase.classList.add('bg-black');
         } else if (myBase.classList.contains('bg-blue-300')) {
             myBase.classList.remove('bg-blue-300');
+            myBase.classList.add('bg-black');
+        } else {
             myBase.classList.add('bg-black');
         }
         
@@ -208,32 +351,51 @@ function Toolbar() {
         if (headerLine.classList.contains('border-black')) {
             headerLine.classList.remove('border-black');
             headerLine.classList.add('border-white');
-        } else if (headerLine.classList.contains('border-black')) {
-            headerLine.classList.remove('border-black');
+        } else if (headerLine.classList.contains('border-blue-400')) {
+            headerLine.classList.remove('border-blue-400');
             headerLine.classList.add('border-white'); 
         }
 
         if (lastPostsLine.classList.contains('border-black')) {
             lastPostsLine.classList.remove('border-black');
             lastPostsLine.classList.add('border-white');
+        } else if (lastPostsLine.classList.contains('border-blue-400')) {
+            lastPostsLine.classList.remove('border-blue-400');
+            lastPostsLine.classList.add('border-white');
         }
 
         if (categorLine.classList.contains('border-black')) {
             categorLine.classList.remove('border-black');
             categorLine.classList.add('border-white');
+        } else if (categorLine.classList.contains('border-blue-400')) {
+            categorLine.classList.remove('border-blue-400');
+            categorLine.classList.add('border-white');
         }
 
-        let POST;
+        let POST, link;
 
         for (let index = 0; index < 10; index++) {
             POST = document.querySelector(`.POST_${index}`);
 
             if (POST.classList.contains('bg-white')) {
-                POST.classList.remove('bg-white', 'text-black');
-                POST.classList.add('bg-black', 'text-white', 'border-2', 'border-white');
-            } else if (POST.classList.contains('bg-blue-400')) {
-                POST.classList.remove('bg-blue-400', 'text-blue-950');
-                POST.classList.add('bg-black', 'text-white', 'border-2', 'border-white');
+                POST.classList.remove('bg-white', 'text-black', 'border-4', 'border-black');
+                POST.classList.add('bg-black', 'text-white', 'border-4', 'border-white');
+            } else if (POST.classList.contains('bg-blue-300')) {
+                POST.classList.remove('bg-blue-300', 'text-blue-950', 'border-4', 'border-blue-400');
+                POST.classList.add('bg-black', 'text-white', 'border-4', 'border-white');
+            }
+
+            link = document.querySelector(`.link_${index}`);
+
+            if (link.classList.contains('text-black')) {
+                link.classList.remove('text-black', 'bg-white', 'border-2', 'border-black');
+                link.classList.add('text-white', 'bg-black', 'border-2', 'border-white');
+            } else if (link.classList.contains('text-blue-950')) {
+                link.classList.remove('text-blue-950', 'bg-blue-400');
+                link.classList.add('text-white', 'bg-black', 'border-2', 'border-white');
+            } else if (link.classList.contains('bg-pink-600')) {
+                link.classList.remove('bg-pink-600', 'text-white');
+                link.classList.add('text-white', 'bg-black', 'border-2', 'border-white');
             }
         }
 
@@ -241,19 +403,19 @@ function Toolbar() {
         const categor = document.querySelector('.categor');
 
         if (lastPosts.classList.contains('bg-white')) {
-            lastPosts.classList.remove('bg-white', 'text-black');
-            lastPosts.classList.add('bg-black', 'text-white', 'border-2', 'border-white');
-        } else if (lastPosts.classList.contains('bg-blue-400')) {
-            lastPosts.classList.remove('bg-blue-400', 'text-blue-950');
-            lastPosts.classList.add('bg-black', 'text-white', 'border-2', 'border-white');
+            lastPosts.classList.remove('bg-white', 'text-black', 'border-4', 'border-black');
+            lastPosts.classList.add('bg-black', 'text-white', 'border-4', 'border-white');
+        } else if (lastPosts.classList.contains('bg-blue-300')) {
+            lastPosts.classList.remove('bg-blue-300', 'text-blue-950', 'border-4', 'border-blue-400');
+            lastPosts.classList.add('bg-black', 'text-white', 'border-4', 'border-white');
         }
 
         if (categor.classList.contains('bg-white')) {
-            categor.classList.remove('bg-white', 'text-black');
-            categor.classList.add('bg-black', 'text-white', 'border-2', 'border-white');
-        } else if (categor.classList.contains('bg-blue-400')) {
-            categor.classList.remove('bg-blue-400', 'text-blue-950');
-            categor.classList.add('bg-black', 'text-white', 'border-2', 'border-white');
+            categor.classList.remove('bg-white', 'text-black', 'border-4', 'border-black');
+            categor.classList.add('bg-black', 'text-white', 'border-4', 'border-white');
+        } else if (categor.classList.contains('bg-blue-300')) {
+            categor.classList.remove('bg-blue-300', 'text-blue-950', 'border-4', 'border-blue-400');
+            categor.classList.add('bg-black', 'text-white', 'border-4', 'border-white');
         }
     }
 
@@ -265,6 +427,8 @@ function Toolbar() {
             myBase.classList.add('bg-blue-300');
         } else if (myBase.classList.contains('bg-white')) {
             myBase.classList.remove('bg-white');
+            myBase.classList.add('bg-blue-300');
+        } else {
             myBase.classList.add('bg-blue-300');
         }
         
@@ -294,36 +458,55 @@ function Toolbar() {
 
         if (headerLine.classList.contains('border-white')) {
             headerLine.classList.remove('border-white');
-            headerLine.classList.add('border-black');
+            headerLine.classList.add('border-blue-400');
+        } else if (headerLine.classList.contains('border-black')) {
+            headerLine.classList.remove('border-black');
+            headerLine.classList.add('border-blue-400');
         }
 
         if (lastPostsLine.classList.contains('border-gray')) {
             lastPostsLine.classList.remove('border-gray');
-            lastPostsLine.classList.add('border-black');
+            lastPostsLine.classList.add('border-blue-400');
         } else if (lastPostsLine.classList.contains('border-white')) {
             lastPostsLine.classList.remove('border-white');
-            lastPostsLine.classList.add('border-black');
+            lastPostsLine.classList.add('border-blue-400');
+        } else if (lastPostsLine.classList.contains('border-black')) {
+            lastPostsLine.classList.remove('border-black');
+            lastPostsLine.classList.add('border-blue-400');
         }
 
         if (categorLine.classList.contains('border-gray')) {
             categorLine.classList.remove('border-gray');
-            categorLine.classList.add('border-black');
+            categorLine.classList.add('border-blue-400');
         } else if (categorLine.classList.contains('border-white')) {
             categorLine.classList.remove('border-white');
-            categorLine.classList.add('border-black');
+            categorLine.classList.add('border-blue-400');
+        } else if (categorLine.classList.contains('border-black')) {
+            categorLine.classList.remove('border-black');
+            categorLine.classList.add('border-blue-400');
         }
 
-        let POST;
+        let POST, link;
 
         for (let index = 0; index < 10; index++) {
             POST = document.querySelector(`.POST_${index}`);
 
             if (POST.classList.contains('bg-black')) {
                 POST.classList.remove('bg-black', 'text-white', 'border-2', 'border-white');
-                POST.classList.add('bg-blue-400', 'text-blue-950');
+                POST.classList.add('bg-blue-300', 'text-blue-950', 'border-4', 'border-blue-400');
             } else if (POST.classList.contains('bg-white')) {
-                POST.classList.remove('bg-white', 'text-black');
-                POST.classList.add('bg-blue-400', 'text-blue-950');
+                POST.classList.remove('bg-white', 'text-black', 'border-4', 'border-black');
+                POST.classList.add('bg-blue-300', 'text-blue-950', 'border-4', 'border-blue-400');
+            }
+
+            link = document.querySelector(`.link_${index}`);
+
+            if (link.classList.contains('text-white')) {
+                link.classList.remove('text-white', 'bg-black', 'border-2', 'border-white');
+                link.classList.add('text-blue-950', 'bg-blue-400');
+            } else if (link.classList.contains('text-black')) {
+                link.classList.remove('text-black', 'bg-white', 'border-2', 'border-black');
+                link.classList.add('text-blue-950', 'bg-blue-400');
             }
         }
 
@@ -332,18 +515,18 @@ function Toolbar() {
 
         if (lastPosts.classList.contains('bg-black')) {
             lastPosts.classList.remove('bg-black', 'text-white', 'border-2', 'border-white');
-            lastPosts.classList.add('bg-blue-400', 'text-blue-950');
+            lastPosts.classList.add('bg-blue-300', 'text-blue-950', 'border-4', 'border-blue-400');
         } else if (lastPosts.classList.contains('bg-white')) {
-            lastPosts.classList.remove('bg-white', 'text-black');
-            lastPosts.classList.add('bg-blue-400', 'text-blue-950');
+            lastPosts.classList.remove('bg-white', 'text-black', 'border-4', 'border-black');
+            lastPosts.classList.add('bg-blue-300', 'text-blue-950', 'border-4', 'border-blue-400');
         }
 
         if (categor.classList.contains('bg-black')) {
             categor.classList.remove('bg-black', 'text-white', 'border-2', 'border-white');
-            categor.classList.add('bg-blue-400', 'text-blue-950');
+            categor.classList.add('bg-blue-300', 'text-blue-950', 'border-4', 'border-blue-400');
         } else if (categor.classList.contains('bg-white')) {
-            categor.classList.remove('bg-white', 'text-black');
-            categor.classList.add('bg-blue-400', 'text-blue-950');
+            categor.classList.remove('bg-white', 'text-black', 'border-4', 'border-black');
+            categor.classList.add('bg-blue-300', 'text-blue-950', 'border-4', 'border-blue-400');
         }
     }
 

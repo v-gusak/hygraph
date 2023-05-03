@@ -52,7 +52,7 @@ const FeaturedPosts = () => {
   );
 
   return (
-    <div className="mb-8 text-white">
+    <div className="mb-8 text-white" id='featuredPostGrayImage'>
       <Carousel infinite responsive={responsive} itemClass="px-4">
         {dataLoaded && featuredPosts.map((post, index) => (
           <FeaturedPostCard key={index} post={post} />

@@ -7,11 +7,14 @@ import { grpahCMSImageLoader } from '../util';
 
 function PostCard({ post, id }) {
   let POST = `POST_${id} bg-white shadow-2xl rounded-lg p-0 lg:p-8 pb-12 mb-8`;
+  let linkButton = `link_${id} text-white transition duration-500 ease transform hover:-translate-y-1 hover:font-bold inline-block bg-pink-600 font-medium rounded-full px-8 py-3 cursor-pointer`;
+  let postCardGrayImage = `postCardGrayImage_${id}`;
+  let postCardAuthorGrayImage = `postCardAuthorGrayImage_${id}`;
 
   return (
     <div className={POST}>
       <div className="relative overflow-hidden shadow-md pb-80 mb-6">
-        <img src={post.featuredImage.url} alt="" className="object-top absolute h-80 w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" />
+        <img id={postCardGrayImage} src={post.featuredImage.url} alt="" className="object-top absolute h-80 w-full object-cover  shadow-lg rounded-t-lg lg:rounded-lg" />
       </div>
 
       <h1 className="transition duration-700 text-center mb-8 cursor-pointer hover:text-pink-600 text-3xl font-semibold">
@@ -20,6 +23,7 @@ function PostCard({ post, id }) {
       <div className="block lg:flex text-center items-center justify-center mb-8 w-full">
         <div className="flex items-center justify-center mb-4 lg:mb-0 w-full lg:w-auto mr-8 items-center">
           <Image
+            id={postCardAuthorGrayImage}
             unoptimized
             loader={grpahCMSImageLoader}
             alt={post.author.name}
@@ -42,7 +46,7 @@ function PostCard({ post, id }) {
       </p>
       <div className="text-center">
         <Link href={`/post/${post.slug}`}>
-          <span className="transition duration-500 ease transform hover:-translate-y-1 inline-block bg-pink-600 text-white font-medium rounded-full px-8 py-3 cursor-pointer">Читати далі</span>
+          <span className={linkButton}>Читати далі</span>
         </Link>
       </div>
     </div>
