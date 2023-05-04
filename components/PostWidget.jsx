@@ -25,9 +25,9 @@ function PostWidget({ categories, slug }) {
     <div className="bg-white shadow-2xl rounded-lg p-8 pb-4 mb-8 lastPosts">
       <h3 className="mb-8 font-semibold border-b pb-4 lastPostsLine border-gray">{slug ? 'Пов’язані публікації' : 'Останні публікації'}</h3>
       {relatedPosts.map((post, index) => (
-        <Link href={`/post/${post.slug}`} className="text-md" key={index} id={`lastPosts_${index}`}>
+        <Link href={`/post/${post.slug}`} className="text-md" key={index}>
           <div key={index} className="flex items-center w-full mb-4">
-            <div className="w-16 flex-none">
+            <div className="w-16 flex-none" id={`lastPosts_${index}`}>
               <Image
                 loader={grpahCMSImageLoader}
                 alt={post.title}
